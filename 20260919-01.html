@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI課程學員介紹</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:"Microsoft JhengHei",Arial,sans-serif;background:#f4f6f8;color:#333}
+header{background:linear-gradient(135deg,#4facfe,#00c6ff);color:#fff;text-align:center;padding:35px 20px;box-shadow:0 4px 12px #0002}
+header h1{margin:0 0 10px;font-size:32px}header p{margin:0;font-size:17px}
+.container{max-width:1400px;margin:30px auto;padding:0 20px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border-radius:18px;padding:22px;box-shadow:0 5px 15px #0000001a;transition:.25s;border-top:6px solid #4facfe}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 25px #00000029}.old{border-top-color:#ff9f43}.new{border-top-color:#1dd1a1}.empty{border-top-color:#aaa;opacity:.65}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.number{background:#333;color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px}
+.name{font-size:23px;font-weight:bold;margin-left:12px;flex:1}.age{font-size:20px;font-weight:bold;color:#555}
+.tag{display:inline-block;padding:6px 12px;border-radius:20px;font-size:14px;margin-bottom:15px}.tag.old{background:#fff0df;color:#d97706}.tag.new{background:#dffaf1;color:#059669}
+.info{margin:10px 0;line-height:1.7}.label{font-weight:bold;color:#555}.highlight{margin-top:15px;padding:14px;background:#f7f9fb;border-radius:12px;line-height:1.7}
+footer{text-align:center;padding:30px;color:#777;font-size:14px}@media(max-width:600px){header h1{font-size:26px}.cards{grid-template-columns:1fr}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header><h1>🤖 AI課程學員介紹</h1><p>彰化社區大學｜一起學AI，一起跟上時代</p></header>
+<div class="container"><div class="cards" id="cards"></div></div>
+<footer>AI課程學員介紹｜彰化社區大學</footer>
+<script>
+const students=[
+[1,"王@珠",68,"舊學員","已上課很多期，想學習AI","今天有事請假"],
+[2,"林@慧",53,"舊學員","第2次上課","上學期缺課較多，所以這學期再來一次"],
+[3,"許@榛",47,"舊學員","第3次上課，希望運用在工作上","希望可以運用在工作上"],
+[4,"曾@美",64,"舊學員","第2次上課","因有事已向老師請假一個月"],
+[5,"黃@庭",56,"舊學員","已上過多次課程","週六下午來上課「湊人氣」"],
+[6,"王@貞",52,"舊學員","第2次上課","想過一個充實的週六"],
+[7,"黃@香",70,"舊學員","第3次來社大","因為想學習AI"],
+[8,"林@華",70,"舊學員","已有多次學習經驗","星期六放假無趣，來認識新東西、交年輕朋友"],
+[9,"鄭@彰",65,"舊學員","第2次上課","想長知識、追上世界潮流"],
+[10,"楊@姝",67,"舊學員","持續學習AI","喜歡課堂氛圍，所以來「溫故知新」"],
+[11,"—","—","—","—","目前沒有自我介紹資料"],
+[12,"林@雲",26,"舊學員","第2次上課","課程先進、跟得上時事"],
+[13,"林@儒",61,"新學員","第1次上課","想增加AI能力"],
+[14,"—","—","—","—","目前沒有自我介紹資料"],
+[15,"許@ ",69,"新學員","第1次上課","已經會用AI，但想再深入學習"],
+[16,"粘@莉",63,"新學員","第1次來社大","希望把AI帶入生活"],
+[17,"莊@章",62,"新學員","第1次上課","想利用時間空檔學AI"],
+[18,"施@蓁",58,"新學員","第1次來社大","因為想學習AI"],
+[19,"曾@銘",65,"新學員","第1次上課","想深入了解AI應用，也希望交流學習"],
+[20,"廖@昭",75,"新學員／重修","曾參加2次AI課程","重修是為了「喚起學習記憶」"],
+[21,"李@平",67,"新學員","第1次上課，已退休","退休沒事做，所以來學習新知"],
+[22,"陸@蘭",37,"新學員","第1次上課","想認識AI並應用到生活"],
+[23,"林@鋐",19,"新學員","第1次上課","怕媽媽一個人上課太無聊，所以陪媽媽來"],
+[24,"高@弘",50,"新學員","第1次上課","週六下午在家無聊，所以來上課"],
+[25,"施@玲",62,"新學員","第1次上課","想學一個興趣"],
+[26,"孫@雲",67,"新學員","第1次上AI課","羨慕同學用AI生成圖片、影片，也想學會"],
+[27,"葉@美",70,"新學員","第一次學AI","想知道AI可以怎樣應用在生活上"]
+];
+document.getElementById("cards").innerHTML=students.map(s=>{
+const empty=s[0]===11||s[0]===14;
+return '<div class="card '+(empty?'empty':s[3]==='舊學員'?'old':'new')+'"><div class="top"><div class="number">'+s[0]+'</div><div class="name">'+s[1]+'</div><div class="age">'+s[2]+'</div></div>'+
+(empty?'<div class="highlight">'+s[5]+'</div>':'<span class="tag '+(s[3]==='舊學員'?'old':'new')+'">'+s[3]+'</span><div class="info"><span class="label">背景：</span>'+s[4]+'</div><div class="highlight"><span class="label">✨ 印象深刻：</span>'+s[5]+'</div>')+
+'</div>';
+}).join("");
+</script>
+</body>
+</html>
