@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動靜之間，煥發新生！太極 13 式 10 週身心解壓旅程</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        amberAccent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif'],
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseSlow: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.85' },
+                        }
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #064e3b 100%);
+        }
+        .gradient-card-1 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(22, 163, 74, 0.1);
+        }
+        .custom-shadow-hover:hover {
+            box-shadow: 0 20px 40px -10px rgba(22, 163, 74, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Floating Announcement Bar -->
+    <div class="bg-amber-400 text-amber-950 font-bold text-center py-2 px-4 text-xs sm:text-sm shadow-inner flex justify-center items-center gap-2">
+        <span class="animate-bounce">🎉</span>
+        <span>【秋季熱烈招募中】零基礎友善・不限年齡性別・名額有限額滿即止！</span>
+        <span class="hidden md:inline-block bg-amber-950 text-amber-300 text-xs px-2 py-0.5 rounded-full ml-2">優惠報名中</span>
+    </div>
+
+    <!-- MAIN HERO SECTION -->
+    <header class="gradient-hero text-white relative overflow-hidden pt-12 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-400">
+        <!-- Background decorative elements -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-24 w-80 h-80 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6">
+            
+            <!-- Badges -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold">
+                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-users text-amber-400"></i> 不限男女年齡
+                </span>
+                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-seedling text-amber-400"></i> 零基礎友善
+                </span>
+                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-spa text-amber-400"></i> 身心靈舒壓
+                </span>
+                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-child-reaching text-amber-400"></i> 強健核心肌群
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif tracking-tight text-white leading-tight">
+                動靜之間，煥發新生！<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-amber-300 to-teal-200">
+                    太極 13 式 10 週身心解壓旅程
+                </span>
+            </h1>
+
+            <p class="text-slate-200 text-base sm:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                告別肩頸僵硬與高壓生活！告別沉悶的傳統框架，用最柔和卻充滿能量的方式，每週 1 小時，帶你重新找回優雅體態、充沛氣血與內心平靜 🧘‍♂️🌿
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#register" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl hover:shadow-amber-500/20 transform hover:-translate-y-1 transition duration-200 flex items-center justify-center gap-2 text-lg">
+                    <i class="fa-solid fa-bolt text-slate-900"></i> 立即報名體驗
+                </a>
+                <a href="#curriculum" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-md transition duration-200 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-map-location-dot"></i> 探索 10 週地圖
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 space-y-16 pb-20">
+
+        <!-- 1. 太極拳的 4 大神仙益處 -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-emerald-700 font-bold tracking-widest text-xs uppercase bg-emerald-100 px-3 py-1 rounded-full">Why Tai Chi?</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 font-serif">✨ 太極拳的 4 大神仙益處</h2>
+                <p class="text-slate-500 text-sm">解鎖古人留給現代人的高階養生密碼</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-3xl border border-emerald-100 custom-shadow custom-shadow-hover transform hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl mb-4 shadow-inner">
+                            🦵
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">核心升級・穩如泰山</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            鍛鍊下肢深層肌群與單腳平衡，讓你走路有神，長者大幅降低跌倒風險，年輕人姿勢更端正！
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full w-fit">告別軟腳蝦 ⚡</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-3xl border border-teal-100 custom-shadow custom-shadow-hover transform hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center text-teal-600 text-2xl mb-4 shadow-inner">
+                            🫁
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">氣血循環・告別冷冰</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            搭配「深長勻細」的腹式呼吸，幫五臟六腑做溫柔按摩，揮別手腳冰冷與慢性疲勞！
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full w-fit">全身暖呼呼 🔥</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 custom-shadow custom-shadow-hover transform hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 text-2xl mb-4 shadow-inner">
+                            😴
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">大腦解壓・一覺到天亮</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            動靜相兼、以意導氣，迅速降低皮質醇（壓力荷爾蒙），放鬆緊繃的神經，重獲深層好眠。
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-sky-700 bg-sky-50 px-3 py-1 rounded-full w-fit">天然安眠藥 🌙</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-3xl border border-amber-100 custom-shadow custom-shadow-hover transform hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 text-2xl mb-4 shadow-inner">
+                            🛡️
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">潤滑關節・靈活護膝</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            低衝擊的柔和圓弧運動，能促進關節腔分泌滑液，舒緩膝蓋與腰椎壓力，越練越靈活。
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full w-fit">關節不卡卡 ✨</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. 太極四大修鍊心法 & 安全守則 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- 四大心法 (7 cols) -->
+            <section class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 custom-shadow space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">☯️</span>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 font-serif">太極四大修鍊心法</h2>
+                        <p class="text-xs text-slate-500">貫穿 10 週的秘訣，讓你的動作既優雅又充滿勁力</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-emerald-50/50 transition">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded">頭 Neck</span>
+                            <h4 class="font-bold text-slate-800 text-sm">虛領頂勁</h4>
+                        </div>
+                        <p class="text-xs text-slate-600">頭頂如有一線向上微提，頭正頸直，呼吸順暢不低頭。</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-emerald-50/50 transition">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded">胸 Chest</span>
+                            <h4 class="font-bold text-slate-800 text-sm">含胸拔背</h4>
+                        </div>
+                        <p class="text-xs text-slate-600">胸部自然舒展放鬆，背部開闊，切忌刻意挺胸或駝背。</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-emerald-50/50 transition">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded">腰 Waist</span>
+                            <h4 class="font-bold text-slate-800 text-sm">松腰落胯</h4>
+                        </div>
+                        <p class="text-xs text-slate-600">腰部放鬆、胯部下沉，將全身重心穩固沉降於雙腳底。</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-emerald-50/50 transition">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded">肩 Shoulder</span>
+                            <h4 class="font-bold text-slate-800 text-sm">沉肩墜肘</h4>
+                        </div>
+                        <p class="text-xs text-slate-600">雙肩自然下垂不聳肩，雙肘微微下垂屈曲，手臂不僵硬。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 安全練拳守則 (5 cols) -->
+            <section class="lg:col-span-5 bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 p-6 sm:p-8 rounded-3xl shadow-lg flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">⚠️</span>
+                        <h2 class="text-xl font-bold font-serif text-slate-950">安全練拳 4 大守則</h2>
+                    </div>
+
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li class="flex items-start gap-2 bg-white/30 p-2.5 rounded-xl backdrop-blur-sm">
+                            <span class="text-amber-950 font-bold">1.</span>
+                            <span><strong>膝蓋絕不過腳尖：</strong>轉動時膝蓋與腳尖方向一致，保護膝關節。</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white/30 p-2.5 rounded-xl backdrop-blur-sm">
+                            <span class="text-amber-950 font-bold">2.</span>
+                            <span><strong>寬鬆穿著：</strong>建議穿著透氣運動服與平底軟底鞋（太極鞋）。</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white/30 p-2.5 rounded-xl backdrop-blur-sm">
+                            <span class="text-amber-950 font-bold">3.</span>
+                            <span><strong>自然呼吸不憋氣：</strong>動作隨呼吸順暢延展，避免肌肉過度發硬。</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white/30 p-2.5 rounded-xl backdrop-blur-sm">
+                            <span class="text-amber-950 font-bold">4.</span>
+                            <span><strong>量力而為：</strong>練習過程中若感關節劇痛，應暫停並請老師調整。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-amber-900/20 text-xs font-bold text-amber-950 flex justify-between items-center">
+                    <span>💡 安全第一，樂活養生</span>
+                    <span class="bg-amber-950 text-amber-300 px-2 py-1 rounded">快樂無負擔</span>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- 3. 10 週闖關探索地圖 (JOURNEY MAP) -->
+        <section id="curriculum" class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-emerald-700 font-bold tracking-widest text-xs uppercase bg-emerald-100 px-3 py-1 rounded-full">Roadmap</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 font-serif">🗺️ 10 週闖關探索地圖</h2>
+                <p class="text-slate-500 text-sm">從零開始，四個階段帶你解鎖太極 13 式全套神技！</p>
+            </div>
+
+            <!-- Stage Filter Bar (Interactive Buttons) -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 border-b border-slate-200 pb-4" id="stage-tabs">
+                <button onclick="filterStage('all')" class="tab-btn bg-emerald-600 text-white font-bold px-4 py-2 rounded-xl text-sm transition shadow-sm" data-stage="all">全部進度</button>
+                <button onclick="filterStage('1')" class="tab-btn bg-slate-200 text-slate-700 hover:bg-slate-300 font-bold px-4 py-2 rounded-xl text-sm transition" data-stage="1">階段一：基礎打底 (W1-W3)</button>
+                <button onclick="filterStage('2')" class="tab-btn bg-slate-200 text-slate-700 hover:bg-slate-300 font-bold px-4 py-2 rounded-xl text-sm transition" data-stage="2">階段二：腰軸協調 (W4-W5)</button>
+                <button onclick="filterStage('3')" class="tab-btn bg-slate-200 text-slate-700 hover:bg-slate-300 font-bold px-4 py-2 rounded-xl text-sm transition" data-stage="3">階段三：進階招式 (W6-W8)</button>
+                <button onclick="filterStage('4')" class="tab-btn bg-slate-200 text-slate-700 hover:bg-slate-300 font-bold px-4 py-2 rounded-xl text-sm transition" data-stage="4">階段四：貫通融會 (W9-W10)</button>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="course-cards">
+
+                <!-- Week 1 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-emerald-500 transition duration-300 space-y-4" data-stage="1">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">第 1 週 ‧ 階段一</span>
+                        <span class="text-2xl">🌱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">立身中正與開篇</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>無極樁站樁、腹式呼吸、關節放鬆熱身</p>
+                        <p class="text-emerald-700 font-bold"><strong>✨ 亮點招式：</strong>預備勢、太極起勢</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-emerald-600">體會全身放鬆與呼吸意識</span>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-emerald-500 transition duration-300 space-y-4" data-stage="1">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">第 2 週 ‧ 階段一</span>
+                        <span class="text-2xl">👣</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">虛實分明與手腳</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>雲手手型、弓步與虛步重心轉換</p>
+                        <p class="text-emerald-700 font-bold"><strong>✨ 亮點招式：</strong>攬雀尾（掤、捋）</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-emerald-600">區分雙腳虛實，重心安穩</span>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-emerald-500 transition duration-300 space-y-4" data-stage="1">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">第 3 週 ‧ 階段一</span>
+                        <span class="text-2xl">🐱</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">勁力延展與連貫</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>太極貓步（前進步與後退步）</p>
+                        <p class="text-emerald-700 font-bold"><strong>✨ 亮點招式：</strong>攬雀尾（擠、按）全套串聯</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-emerald-600">掌握「掤捋擠按」四正手</span>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-teal-500 transition duration-300 space-y-4" data-stage="2">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full">第 4 週 ‧ 階段二</span>
+                        <span class="text-2xl">🌀</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">腰軸驅動與開合</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>腰部旋轉帶動雙臂、纏絲勁基礎</p>
+                        <p class="text-teal-700 font-bold"><strong>✨ 亮點招式：</strong>單鞭、提手上勢</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-teal-600">理解「以腰為軸」，擺脫手硬拉</span>
+                    </div>
+                </div>
+
+                <!-- Week 5 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-teal-500 transition duration-300 space-y-4" data-stage="2">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full">第 5 週 ‧ 階段二</span>
+                        <span class="text-2xl">🕊️</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">平衡穩定與攻防</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>單腳虛步平衡訓練</p>
+                        <p class="text-teal-700 font-bold"><strong>✨ 亮點招式：</strong>白鶴亮翅、抱虎歸山</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-teal-600">提升單腿獨立與上虛下實</span>
+                    </div>
+                </div>
+
+                <!-- Week 6 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-sky-500 transition duration-300 space-y-4" data-stage="3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full">第 6 週 ‧ 階段三</span>
+                        <span class="text-2xl">🥋</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">四隅手與期中調整</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>採、挒、肘、靠身法模擬</p>
+                        <p class="text-sky-700 font-bold"><strong>✨ 亮點招式：</strong>肘底看捶、倒卷肱（退步招）</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-sky-600">掌握「退步如貓行」靈活性</span>
+                    </div>
+                </div>
+
+                <!-- Week 7 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-sky-500 transition duration-300 space-y-4" data-stage="3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full">第 7 週 ‧ 階段三</span>
+                        <span class="text-2xl">☁️</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">橫移與行雲流水</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>橫向側移步法、全身鬆抖功</p>
+                        <p class="text-sky-700 font-bold"><strong>✨ 亮點招式：</strong>斜飛勢、雲手（連續三換手）</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-sky-600">體會「雲手」流暢綿延之美</span>
+                    </div>
+                </div>
+
+                <!-- Week 8 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-sky-500 transition duration-300 space-y-4" data-stage="3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full">第 8 週 ‧ 階段三</span>
+                        <span class="text-2xl">🐎</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">高低起伏與沉降</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>深蹲落胯練習、下勢伸展</p>
+                        <p class="text-sky-700 font-bold"><strong>✨ 亮點招式：</strong>高探馬、左右穿梭</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-sky-600">高低起伏中仍能保持身體垂直</span>
+                    </div>
+                </div>
+
+                <!-- Week 9 -->
+                <div class="course-card bg-white rounded-3xl p-6 border border-slate-200 custom-shadow hover:border-amber-500 transition duration-300 space-y-4" data-stage="4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">第 9 週 ‧ 階段四</span>
+                        <span class="text-2xl">🪡</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">貫通與招式完結</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 基本功：</strong>全套意念引導與呼吸韻律融合</p>
+                        <p class="text-amber-700 font-bold"><strong>✨ 亮點招式：</strong>海底針、閃通背、太極收勢</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-400">解鎖目標</span>
+                        <span class="font-bold text-amber-600">完成 13 式學習，優雅收勢</span>
+                    </div>
+                </div>
+
+                <!-- Week 10 -->
+                <div class="course-card bg-gradient-to-br from-amber-50 to-amber-100 rounded-3xl p-6 border-2 border-amber-300 custom-shadow hover:border-amber-500 transition duration-300 space-y-4" data-stage="4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">第 10 週 ‧ 畢業展演</span>
+                        <span class="text-2xl">🎓</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">成果驗收與養生心法</h3>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>🎯 內容：</strong>全套 13 式流暢獨立演練、教師個人化建議與姿勢微調。</p>
+                        <p class="text-amber-800 font-bold"><strong>✨ 榮譽：</strong>結業頒發證書與自主保養指南</p>
+                    </div>
+                    <div class="pt-3 border-t border-amber-200 flex justify-between items-center text-xs">
+                        <span class="text-amber-800">終極解鎖</span>
+                        <span class="font-bold text-amber-800">獨立演練，養生終身受用！</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. 單堂課黃金比例分配 (60-90 分鐘) -->
+        <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 custom-shadow space-y-6">
+            <div class="text-center space-y-1">
+                <span class="text-emerald-700 font-bold text-xs uppercase bg-emerald-100 px-3 py-1 rounded-full">Golden Ratio</span>
+                <h2 class="text-2xl font-bold font-serif text-slate-900">⏱️ 單堂課 90 分鐘黃金比例分配</h2>
+                <p class="text-slate-500 text-xs">節奏緊湊不枯燥，每分每秒都沉浸在放鬆之中</p>
+            </div>
+
+            <!-- Visual Bar -->
+            <div class="space-y-3">
+                <div class="h-6 w-full bg-slate-100 rounded-full overflow-hidden flex shadow-inner">
+                    <div class="bg-emerald-500 h-full text-[10px] text-white flex items-center justify-center font-bold" style="width: 17%">15m</div>
+                    <div class="bg-teal-500 h-full text-[10px] text-white flex items-center justify-center font-bold" style="width: 17%">15m</div>
+                    <div class="bg-amber-500 h-full text-[10px] text-white flex items-center justify-center font-bold" style="width: 33%">30m</div>
+                    <div class="bg-sky-500 h-full text-[10px] text-white flex items-center justify-center font-bold" style="width: 17%">15m</div>
+                    <div class="bg-indigo-500 h-full text-[10px] text-white flex items-center justify-center font-bold" style="width: 16%">10m</div>
+                </div>
+
+                <!-- Legend -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center pt-2">
+                    <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-100">
+                        <span class="text-xs font-bold text-emerald-700 block">15 mins</span>
+                        <span class="text-xs font-bold text-slate-800">熱身與站樁</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">鬆身功、靜心無極樁</p>
+                    </div>
+                    <div class="p-3 bg-teal-50 rounded-2xl border border-teal-100">
+                        <span class="text-xs font-bold text-teal-700 block">15 mins</span>
+                        <span class="text-xs font-bold text-slate-800">舊招複習</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">溫故知新、微調細節</p>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-2xl border border-amber-100">
+                        <span class="text-xs font-bold text-amber-700 block">30 mins</span>
+                        <span class="text-xs font-bold text-slate-800">新招拆解</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">動作示範、步驟帶練</p>
+                    </div>
+                    <div class="p-3 bg-sky-50 rounded-2xl border border-sky-100">
+                        <span class="text-xs font-bold text-sky-700 block">15 mins</span>
+                        <span class="text-xs font-bold text-slate-800">全套貫通</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">串聯動作、體驗韻律</p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-100">
+                        <span class="text-xs font-bold text-indigo-700 block">10 mins</span>
+                        <span class="text-xs font-bold text-slate-800">舒緩 Q&A</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">調息放鬆、交流討論</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CALL TO ACTION (CTA) -->
+        <section id="register" class="bg-gradient-to-r from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-amber-400/10 rounded-full blur-2xl"></div>
+            
+            <div class="max-w-2xl mx-auto space-y-4">
+                <span class="bg-amber-400 text-amber-950 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Ready to Start?</span>
+                <h2 class="text-3xl sm:text-4xl font-black font-serif text-white">準備好一起體驗太極的魅力了嗎？</h2>
+                <p class="text-slate-300 text-sm sm:text-base font-light">
+                    給自己 10 週的時間，卸下疲憊，找回輕盈的身體與平靜的心靈。<br>現在報名即享早鳥學費折扣與專屬太極軟底鞋！
+                </p>
+
+                <!-- Interactive Demo Alert Trigger -->
+                <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="openModal()" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-solid fa-paper-plane"></i> 立即填表報名
+                    </button>
+                </div>
+
+                <div class="pt-4 flex justify-center items-center gap-6 text-xs text-slate-400">
+                    <span><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> 免費試聽一堂</span>
+                    <span><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> 提供小班精緻教學</span>
+                    <span><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> 缺課可補課</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Form (Interactive Overlay) -->
+    <div id="modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4 relative animate-float">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-bold font-serif text-slate-900">預約 10 週太極旅程</h3>
+            <p class="text-xs text-slate-500">請填寫基本資料，我們將有專人與您聯繫確認課程細節。</p>
+            
+            <form onsubmit="handleFormSubmit(event)" class="space-y-3 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">您的姓名</label>
+                    <input type="text" required placeholder="例如：王小明" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">聯絡電話</label>
+                    <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">方便上課時段</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                        <option>週六 上午班 (09:30-11:00)</option>
+                        <option>週日 下午班 (14:00-15:30)</option>
+                        <option>週二 星光班 (19:30-21:00)</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-lg transition mt-2">
+                    確認送出報名
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Alert Message -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 hidden flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">報名成功！</h4>
+            <p class="text-xs text-slate-300">專人將於 24 小時內與您聯繫。</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <p>太極 13 式 10 週身心解壓課程 ‧ 讓健康成為一種生活態度</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Filter Journey Cards
+        function filterStage(stage) {
+            const cards = document.querySelectorAll('.course-card');
+            const buttons = document.querySelectorAll('#stage-tabs button');
+
+            // Toggle active button style
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-stage') === stage) {
+                    btn.classList.remove('bg-slate-200', 'text-slate-700');
+                    btn.classList.add('bg-emerald-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-emerald-600', 'text-white');
+                    btn.classList.add('bg-slate-200', 'text-slate-700');
+                }
+            });
+
+            // Filter cards
+            cards.forEach(card => {
+                if (stage === 'all' || card.getAttribute('data-stage') === stage) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            closeModal();
+            
+            // Show Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
