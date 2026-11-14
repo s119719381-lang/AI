@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青銀共舞：AI賦能42式太極｜彰化社區大學</title>
+  <!-- 載入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 載入 Google Fonts: 思源黑體與思源宋體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <!-- 載入 Phosphor Icons 圖示庫 -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F7F5F0',      // 宣紙白
+            paperDark: '#ECE8DF',  // 仿古紙深色
+            ink: '#1C2224',        // 墨黑
+            inkLight: '#4A5559',   // 淡墨灰
+            bamboo: '#2A6F68',     // 竹青色（結合東方青綠與科技青）
+            bambooLight: '#E6F2F0',// 淺竹青
+            gold: '#C49A45',       // 暖金色
+            goldLight: '#FAF4E6',  // 淺暖金
+            techBlue: '#2B5B84',   // 數位靛藍
+            techLight: '#EBF3FA'   // 淺靛藍
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 自定義水墨暈染背景與無障礙字級縮放 */
+    :root {
+      --base-font-size: 16px;
+    }
+    html {
+      font-size: var(--base-font-size);
+      background-color: #F7F5F0;
+      color: #1C2224;
+    }
+    html.large-text {
+      --base-font-size: 19px;
+    }
+
+    /* 水墨光暈背景效果 */
+    .ink-wash-bg {
+      background-color: #F7F5F0;
+      background-image: 
+        radial-gradient(circle at 12% 18%, rgba(42, 111, 104, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 88% 25%, rgba(196, 154, 69, 0.10) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(43, 91, 132, 0.06) 0%, transparent 50%);
+    }
+
+    /* 緩慢旋轉的太極意象光環 */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 45s linear infinite;
+    }
+
+    /* 列印樣式優化 */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      .print-break-inside-avoid {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="ink-wash-bg font-sans antialiased selection:bg-bamboo selection:text-white">
+
+  <!-- 頂部懸浮導覽列 -->
+  <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur-md border-b border-ink/10 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <!-- 品牌識別 -->
+      <div class="flex items-center gap-3">
+        <!-- SVG 太極科技圖騰 -->
+        <div class="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center shadow-md relative overflow-hidden">
+          <svg viewBox="0 0 100 100" class="w-8 h-8 animate-spin-slow">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#C49A45" stroke-width="3" stroke-dasharray="6 4"/>
+            <path d="M50,4 A46,46 0 0,1 50,96 A23,23 0 0,1 50,50 A23,23 0 0,0 50,4 Z" fill="#2A6F68"/>
+            <path d="M50,4 A46,46 0 0,0 50,96 A23,23 0 0,1 50,50 A23,23 0 0,0 50,4 Z" fill="#F7F5F0"/>
+            <circle cx="50" cy="27" r="6" fill="#2A6F68"/>
+            <circle cx="50" cy="73" r="6" fill="#F7F5F0"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-xs font-bold tracking-widest text-bamboo block">彰化社區大學｜18週特色課程</span>
+          <h1 class="font-serif font-bold text-base sm:text-lg text-ink leading-tight">青銀共舞：AI賦能42式太極</h1>
+        </div>
+      </div>
+
+      <!-- 快捷導覽與無障礙工具列 -->
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-inkLight mr-2">
+          <a href="#core-info" class="hover:text-bamboo transition-colors">課程核心</a>
+          <a href="#teaching-design" class="hover:text-bamboo transition-colors">教學亮點</a>
+          <a href="#syllabus" class="hover:text-bamboo transition-colors">18週大綱</a>
+        </nav>
+
+        <!-- 無障礙字體大小切換按鈕 -->
+        <button id="fontSizeToggle" onclick="toggleFontSize()" aria-label="切換字體大小"
+          class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-ink/15 text-ink hover:border-bamboo hover:text-bamboo transition-all shadow-sm text-sm font-medium cursor-pointer">
+          <i class="ph ph-text-aa text-lg text-bamboo"></i>
+          <span id="fontSizeLabel">大字體模式</span>
+        </button>
+
+        <!-- 一鍵複製文字稿按鈕 -->
+        <button onclick="copyCourseText()"
+          class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-bamboo text-white hover:bg-bamboo/90 transition-all shadow-sm text-sm font-medium cursor-pointer">
+          <i class="ph ph-copy text-lg"></i>
+          <span class="hidden sm:inline">複製文字稿</span>
+        </button>
+
+        <!-- 列印 / 另存PDF -->
+        <button onclick="window.print()"
+          class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-ink text-paper hover:bg-ink/85 transition-all shadow-sm text-sm font-medium cursor-pointer">
+          <i class="ph ph-printer text-lg text-gold"></i>
+          <span class="hidden sm:inline">列印 / PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 提示訊息框 (取代 alert) -->
+  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none no-print">
+    <div class="bg-ink text-paper px-5 py-3.5 rounded-2xl shadow-xl border border-gold/40 flex items-center gap-3">
+      <i class="ph-fill ph-check-circle text-gold text-xl"></i>
+      <span id="toastText" class="text-sm font-medium">已成功複製完整課程文字稿！</span>
+    </div>
+  </div>
+
+  <!-- 頁首區 (Hero Section) -->
+  <section class="relative overflow-hidden pt-10 pb-14 sm:pt-16 sm:pb-20 border-b border-ink/10">
+    <!-- 背景水墨圓環裝飾 -->
+    <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full border border-bamboo/15 pointer-events-none"></div>
+    <div class="absolute -right-12 -top-12 w-72 h-72 rounded-full border border-gold/20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl">
+        <!-- 課程機構與期程標籤 -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bambooLight border border-bamboo/25 text-bamboo font-medium text-sm mb-5 shadow-sm">
+          <i class="ph-fill ph-sparkle text-gold"></i>
+          <span>彰化社區大學 18週特色課程</span>
+        </div>
+
+        <!-- 主標題 -->
+        <h2 class="font-serif font-black text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight leading-tight mb-4">
+          青銀共舞：<span class="text-bamboo">AI賦能</span>42式太極
+        </h2>
+
+        <!-- 副標題 -->
+        <p class="text-lg sm:text-xl text-inkLight font-medium leading-relaxed mb-8">
+          42式太極拳 <span class="text-gold font-bold mx-1">×</span> 社會情緒學習 (SEL) <span class="text-gold font-bold mx-1">×</span> AI資訊素養 ｜ 跨世代身心平衡之旅
+        </p>
+
+        <!-- 課程亮點標籤列 -->
+        <div class="flex flex-wrap gap-3">
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/90 border border-ink/10 shadow-sm">
+            <span class="w-8 h-8 rounded-xl bg-goldLight text-gold flex items-center justify-center">
+              <i class="ph-fill ph-users-three text-lg"></i>
+            </span>
+            <div>
+              <div class="text-xs text-inkLight">跨世代共融</div>
+              <div class="text-sm font-bold text-ink">20-80歲青銀共學</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/90 border border-ink/10 shadow-sm">
+            <span class="w-8 h-8 rounded-xl bg-techLight text-techBlue flex items-center justify-center">
+              <i class="ph-fill ph-camera text-lg"></i>
+            </span>
+            <div>
+              <div class="text-xs text-inkLight">智慧科技輔助</div>
+              <div class="text-sm font-bold text-ink">AI影像動作分析</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/90 border border-ink/10 shadow-sm">
+            <span class="w-8 h-8 rounded-xl bg-bambooLight text-bamboo flex items-center justify-center">
+              <i class="ph-fill ph-heart-half text-lg"></i>
+            </span>
+            <div>
+              <div class="text-xs text-inkLight">內在身心安頓</div>
+              <div class="text-sm font-bold text-ink">情緒覺察與正念</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心課程資訊卡片區 (Grid Layout) -->
+  <section id="core-info" class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-1.5 h-8 bg-bamboo rounded-full"></div>
+      <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ink">課程核心規劃</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- 卡片 1：課程理念 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ink/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between print-break-inside-avoid">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-bambooLight text-bamboo text-xs font-bold tracking-wider">核心精神</span>
+            <i class="ph-duotone ph-yin-yang text-3xl text-bamboo"></i>
+          </div>
+          <h4 class="font-serif font-bold text-xl text-ink mb-3">課程理念</h4>
+          <p class="text-inkLight leading-relaxed">
+            結合42式太極剛柔並濟之美、社會情緒覺察與AI數位工具，助跨世代學員在動靜之間安頓身心，實現青銀共學與智慧樂活。
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-ink/5 flex items-center justify-between text-xs text-inkLight">
+          <span>動靜相兼・智慧樂活</span>
+          <span class="font-serif text-bamboo font-bold">太極 × 科技</span>
+        </div>
+      </div>
+
+      <!-- 卡片 2：課程目標 (跨兩欄在桌機上更顯大氣) -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ink/10 shadow-sm hover:shadow-md transition-shadow md:col-span-2 flex flex-col justify-between print-break-inside-avoid">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-goldLight text-gold text-xs font-bold tracking-wider">學習藍圖</span>
+            <i class="ph-duotone ph-compass text-3xl text-gold"></i>
+          </div>
+          <h4 class="font-serif font-bold text-xl text-ink mb-3">課程目標</h4>
+          <p class="text-inkLight leading-relaxed mb-5">
+            因應高齡化與數位轉型趨勢，本課程從太極陰陽平衡理論出發，循序教授42式太極拳技能；透過團體互動培養專注、情緒覺察與跨代同理心，並運用AI影像與數位工具輔助練習，進而將身心平衡與科技素養融入日常，促進社區共融與終身學習。
+          </p>
+        </div>
+        <!-- 五大面向小標籤 -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-4 border-t border-ink/5 text-center">
+          <div class="bg-paper rounded-xl p-2">
+            <div class="text-xs font-bold text-bamboo">學科理論</div>
+            <div class="text-[11px] text-inkLight">陰陽平衡</div>
+          </div>
+          <div class="bg-paper rounded-xl p-2">
+            <div class="text-xs font-bold text-bamboo">拳架技能</div>
+            <div class="text-[11px] text-inkLight">42式套路</div>
+          </div>
+          <div class="bg-paper rounded-xl p-2">
+            <div class="text-xs font-bold text-gold">品德態度</div>
+            <div class="text-[11px] text-inkLight">情緒與同理</div>
+          </div>
+          <div class="bg-paper rounded-xl p-2">
+            <div class="text-xs font-bold text-techBlue">資訊素養</div>
+            <div class="text-[11px] text-inkLight">AI輔助練習</div>
+          </div>
+          <div class="bg-paper rounded-xl p-2 col-span-2 sm:col-span-1">
+            <div class="text-xs font-bold text-ink">社區連結</div>
+            <div class="text-[11px] text-inkLight">青銀共融</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片 3：條件限制 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ink/10 shadow-sm hover:shadow-md transition-shadow print-break-inside-avoid">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full bg-techLight text-techBlue text-xs font-bold tracking-wider">報名須知・進階程度</span>
+          <i class="ph-duotone ph-user-check text-3xl text-techBlue"></i>
+        </div>
+        <h4 class="font-serif font-bold text-xl text-ink mb-3">條件限制</h4>
+        <p class="text-inkLight leading-relaxed">
+          本課程為進階推廣課程，適合20至80歲身心健康之民眾。學員須具備基礎太極拳或八段錦等基本功底，能獨立完成單腳站立與基本步法移動（如弓步、虛步），並自備智慧型手機以配合課堂數位學習活動。
+        </p>
+      </div>
+
+      <!-- 卡片 4：授課方式 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ink/10 shadow-sm hover:shadow-md transition-shadow print-break-inside-avoid">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full bg-bambooLight text-bamboo text-xs font-bold tracking-wider">多元互動</span>
+          <i class="ph-duotone ph-chalkboard-teacher text-3xl text-bamboo"></i>
+        </div>
+        <h4 class="font-serif font-bold text-xl text-ink mb-3">授課方式</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-person-arms-spread text-bamboo"></i>講師示範與實際操作
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-hand-heart text-bamboo"></i>個別指導與反覆練習
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-film-strip text-techBlue"></i>影片欣賞及圖像教學
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-users text-gold"></i>團體互動及小組活動
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-chats-circle text-gold"></i>案例討論與心得分享
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-paper text-ink text-sm font-medium border border-ink/10">
+            <i class="ph-fill ph-star text-bamboo"></i>學員上台表演與展現
+          </span>
+        </div>
+      </div>
+
+      <!-- 卡片 5：發展計畫 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ink/10 shadow-sm hover:shadow-md transition-shadow print-break-inside-avoid">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full bg-goldLight text-gold text-xs font-bold tracking-wider">永續延伸</span>
+          <i class="ph-duotone ph-plant text-3xl text-gold"></i>
+        </div>
+        <h4 class="font-serif font-bold text-xl text-ink mb-3">發展計畫</h4>
+        <p class="text-inkLight leading-relaxed">
+          未來將發展雙人推手與太極器械應用，並培訓學員成為社區太極種子講師，結合數位影音紀錄推廣地方健康促進。
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 特別醒目卡片：教學設計範例 -->
+    <div id="teaching-design" class="mt-8 bg-gradient-to-br from-ink via-[#222E30] to-bamboo rounded-3xl p-6 sm:p-9 text-paper shadow-lg relative overflow-hidden print-break-inside-avoid">
+      <!-- 裝飾紋理 -->
+      <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+        <i class="ph-fill ph-waves text-9xl"></i>
+      </div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold tracking-wider mb-3">
+            <i class="ph-fill ph-lightbulb"></i>
+            <span>教學設計精選範例</span>
+          </div>
+          <h4 class="font-serif font-bold text-2xl sm:text-3xl text-white mb-3">
+            第6週「雲手轉身與情緒流動」
+          </h4>
+          <p class="text-paper/90 text-base sm:text-lg leading-relaxed">
+            暖身調息後，示範雲手與轉身步法；分組以手機錄影比對動作，並分享練習時的呼吸與情緒覺察。
+          </p>
+        </div>
+
+        <!-- 步驟視覺化圖示 -->
+        <div class="flex sm:grid sm:grid-cols-3 gap-3 shrink-0 overflow-x-auto pb-2 sm:pb-0">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 min-w-[130px] text-center">
+            <div class="w-9 h-9 rounded-full bg-bamboo text-white flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+            <div class="text-xs text-gold font-bold mb-0.5">身法示範</div>
+            <div class="text-xs text-paper/80">暖身調息與雲手步法</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 min-w-[130px] text-center">
+            <div class="w-9 h-9 rounded-full bg-techBlue text-white flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+            <div class="text-xs text-gold font-bold mb-0.5">數位輔助</div>
+            <div class="text-xs text-paper/80">分組手機錄影比對</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 min-w-[130px] text-center">
+            <div class="w-9 h-9 rounded-full bg-gold text-ink flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+            <div class="text-xs text-gold font-bold mb-0.5">情緒共學</div>
+            <div class="text-xs text-paper/80">呼吸與情緒覺察分享</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18週課程大綱互動區塊 -->
+  <section id="syllabus" class="py-12 sm:py-16 bg-white/70 border-t border-ink/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 標題與視圖切換器 -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-1.5 h-8 bg-gold rounded-full"></div>
+            <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ink">18週完整課程大綱</h3>
+          </div>
+          <p class="text-inkLight text-sm sm:text-base">
+            循序漸進掌握42式太極拳四段套路，每週融合情緒覺察與數位素養練習
+          </p>
+        </div>
+
+        <!-- 視圖切換按鈕 (卡片時間軸 vs 完整表格) -->
+        <div class="inline-flex p-1.5 rounded-2xl bg-paperDark border border-ink/10 self-start no-print" role="group">
+          <button id="btnTimelineView" onclick="switchView('timeline')"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-ink shadow-sm cursor-pointer">
+            <i class="ph-fill ph-cards text-bamboo text-lg"></i>
+            <span>精美卡片視圖</span>
+          </button>
+          <button id="btnTableView" onclick="switchView('table')"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all text-inkLight hover:text-ink cursor-pointer">
+            <i class="ph-fill ph-table text-bamboo text-lg"></i>
+            <span>完整表格視圖</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 篩選與搜尋控制列 -->
+      <div class="bg-paper rounded-2xl p-4 sm:p-5 border border-ink/10 mb-8 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 no-print">
+        <!-- 段落篩選按鈕群 -->
+        <div class="flex flex-wrap gap-2" id="phaseFilters">
+          <button onclick="filterPhase('all')" data-phase="all"
+            class="phase-btn active px-3.5 py-2 rounded-xl text-sm font-bold bg-bamboo text-white shadow-sm transition-all cursor-pointer">
+            全部 18 週
+          </button>
+          <button onclick="filterPhase('p1')" data-phase="p1"
+            class="phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-bambooLight border border-ink/10 transition-all cursor-pointer">
+            第一段 (1-4週)
+          </button>
+          <button onclick="filterPhase('p2')" data-phase="p2"
+            class="phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-bambooLight border border-ink/10 transition-all cursor-pointer">
+            第二段 (5-8週)
+          </button>
+          <button onclick="filterPhase('civic')" data-phase="civic"
+            class="phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-goldLight border border-ink/10 transition-all cursor-pointer">
+            公民素養週 (第9週)
+          </button>
+          <button onclick="filterPhase('p3')" data-phase="p3"
+            class="phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-bambooLight border border-ink/10 transition-all cursor-pointer">
+            第三段 (10-13週)
+          </button>
+          <button onclick="filterPhase('p4')" data-phase="p4"
+            class="phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-bambooLight border border-ink/10 transition-all cursor-pointer">
+            第四段與成果展 (14-18週)
+          </button>
+        </div>
+
+        <!-- 關鍵字搜尋框 -->
+        <div class="relative min-w-[240px] sm:min-w-[280px]">
+          <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-inkLight text-lg"></i>
+          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="搜尋招式、AI工具或情緒主題..."
+            class="w-full pl-10 pr-9 py-2.5 rounded-xl bg-white border border-ink/15 text-sm text-ink placeholder-inkLight/70 focus:outline-none focus:border-bamboo focus:ring-2 focus:ring-bamboo/20 transition-all">
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-inkLight hover:text-ink cursor-pointer">
+            <i class="ph-fill ph-x-circle"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 徽章圖例說明 -->
+      <div class="flex flex-wrap items-center gap-4 text-xs text-inkLight mb-6 px-1">
+        <span class="font-bold text-ink">課程元素標示：</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-bambooLight text-bamboo font-medium">
+          <i class="ph-fill ph-yin-yang"></i>太極招式
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-goldLight text-gold font-medium">
+          <i class="ph-fill ph-heart"></i>情緒學習 (SEL)
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-techLight text-techBlue font-medium">
+          <i class="ph-fill ph-robot"></i>AI資訊素養
+        </span>
+      </div>
+
+      <!-- 無搜尋結果提示 -->
+      <div id="emptyState" class="hidden text-center py-12 bg-paper rounded-3xl border border-ink/10">
+        <i class="ph-duotone ph-magnifying-glass text-5xl text-inkLight/50 mb-3"></i>
+        <p class="text-lg font-bold text-ink mb-1">找不到符合條件的課程週次</p>
+        <p class="text-sm text-inkLight mb-4">請嘗試其他關鍵字或切換回「全部 18 週」</p>
+        <button onclick="resetFilters()" class="px-4 py-2 rounded-xl bg-bamboo text-white text-sm font-medium hover:bg-bamboo/90 cursor-pointer">
+          重設所有篩選
+        </button>
+      </div>
+
+      <!-- 視圖 A：精美卡片時間軸視圖 -->
+      <div id="timelineContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- 由 JavaScript 動態渲染 -->
+      </div>
+
+      <!-- 視圖 B：完整表格視圖 -->
+      <div id="tableContainer" class="hidden overflow-x-auto bg-white rounded-3xl border border-ink/10 shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-ink text-paper font-serif">
+              <th class="py-4 px-5 text-sm sm:text-base font-bold w-24 sm:w-28 whitespace-nowrap rounded-tl-3xl">週</th>
+              <th class="py-4 px-5 text-sm sm:text-base font-bold w-1/4 min-w-[180px]">主題</th>
+              <th class="py-4 px-5 text-sm sm:text-base font-bold rounded-tr-3xl">內容</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-ink/10">
+            <!-- 由 JavaScript 動態渲染 -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 頁尾資訊 -->
+  <footer class="bg-ink text-paper/80 py-10 border-t border-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-full bg-bamboo text-white flex items-center justify-center font-serif font-bold">太</span>
+        <div>
+          <p class="font-serif font-bold text-white">彰化社區大學｜青銀共舞：AI賦能42式太極</p>
+          <p class="text-xs text-paper/60">跨世代身心安頓 × 社會情緒學習 × AI智慧樂活</p>
+        </div>
+      </div>
+      <div class="text-xs text-paper/60 text-center sm:text-right">
+        <p>適合 20 至 80 歲跨世代學員共學・無障礙大字體友善設計</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 18週完整課程資料庫 (嚴格保留原始文案與結構)
+    const syllabusData = [
+      {
+        week: "第1週",
+        phase: "p1",
+        phaseLabel: "第一段",
+        title: "相見歡與起勢心法",
+        content: "課程介紹與破冰；體驗呼吸覺察與身體掃描（情緒穩定練習）；學習第一段「起勢、右攬雀尾、左單鞭」，建立數位學習群組與AI輔助工具安裝。",
+        tags: {
+          taiji: "起勢、右攬雀尾、左單鞭",
+          sel: "呼吸覺察與身體掃描",
+          ai: "建立數位群組與AI工具安裝"
+        }
+      },
+      {
+        week: "第2週",
+        phase: "p1",
+        phaseLabel: "第一段",
+        title: "剛柔並濟：提手與白鶴亮翅",
+        content: "複習第一段；學習「提手、白鶴亮翅、摟膝拗步」；透過情緒溫度計覺察肩頸緊繃與放鬆，運用手機慢動作錄影檢視重心轉換。",
+        tags: {
+          taiji: "提手、白鶴亮翅、摟膝拗步",
+          sel: "情緒溫度計與身心放鬆",
+          ai: "手機慢動作錄影檢視重心"
+        }
+      },
+      {
+        week: "第3週",
+        phase: "p1",
+        phaseLabel: "第一段",
+        title: "進退有度：撇身捶與捋擠勢",
+        content: "學習「撇身捶、捋擠勢、進步搬攔捶、如封似閉」；分組互助練習攻防意識與人際界線（社會情緒學習），利用AI動作分析App評估姿態對稱性。",
+        tags: {
+          taiji: "撇身捶、捋擠勢、進步搬攔捶、如封似閉",
+          sel: "攻防意識與人際界線",
+          ai: "AI動作分析App評估對稱性"
+        }
+      },
+      {
+        week: "第4週",
+        phase: "p1",
+        phaseLabel: "第一段",
+        title: "開合之間：第一段串聯與檢視",
+        content: "完整串聯第一段（第1至10式）；小組互相拍攝練習影片並進行正向回饋練習（同理心溝通），學習辨識網路太極教學影片的正確性（資訊素養）。",
+        tags: {
+          taiji: "第一段串聯（第1至10式）",
+          sel: "正向回饋與同理心溝通",
+          ai: "辨識網路教學影片正確性"
+        }
+      },
+      {
+        week: "第5週",
+        phase: "p2",
+        phaseLabel: "第二段",
+        title: "轉身蓄勁：開合手與右單鞭",
+        content: "進入第二段，學習「開合手、右單鞭、肘底捶、轉身推掌」；探討轉身時的焦慮與穩定心法，練習使用AI語音助理設定每日練拳提醒與紀錄。",
+        tags: {
+          taiji: "開合手、右單鞭、肘底捶、轉身推掌",
+          sel: "轉身焦慮與內在穩定心法",
+          ai: "AI語音助理設定練拳提醒"
+        }
+      },
+      {
+        week: "第6週",
+        phase: "p2",
+        phaseLabel: "第二段",
+        title: "雲手轉身與情緒流動",
+        content: "學習「玉女穿梭、右左蹬腳、掩手肱捶」；體會雲手如行雲流水般的情緒釋放，分組進行動作細節微調與跨世代合作分享。",
+        tags: {
+          taiji: "玉女穿梭、右左蹬腳、掩手肱捶",
+          sel: "情緒流動釋放與跨代合作",
+          ai: "分組手機錄影比對微調"
+        }
+      },
+      {
+        week: "第7週",
+        phase: "p2",
+        phaseLabel: "第二段",
+        title: "氣沉丹田：野馬分鬃與雲手",
+        content: "學習「野馬分鬃、雲手、獨立打虎」；練習單腳獨立時的專注力與抗壓性，使用AI圖像生成工具創作專屬的「太極心境卡」。",
+        tags: {
+          taiji: "野馬分鬃、雲手、獨立打虎",
+          sel: "單腳獨立專注力與抗壓性",
+          ai: "AI圖像生成「太極心境卡」"
+        }
+      },
+      {
+        week: "第8週",
+        phase: "p2",
+        phaseLabel: "第二段",
+        title: "承先啟後：第二段整合演練",
+        content: "串聯第二段（第11至22式）；進行半程小發表與同儕互評，學習利用數位筆記整理個人易錯動作與修正策略。",
+        tags: {
+          taiji: "第二段串聯（第11至22式）",
+          sel: "半程小發表與同儕互評",
+          ai: "數位筆記整理修正策略"
+        }
+      },
+      {
+        week: "第9週",
+        phase: "civic",
+        phaseLabel: "公民素養週",
+        title: "公民素養週",
+        content: "由彰化社區大學安排",
+        isCivic: true,
+        tags: null
+      },
+      {
+        week: "第10週",
+        phase: "p3",
+        phaseLabel: "第三段",
+        title: "靈活變換：分腳與雙峰貫耳",
+        content: "進入第三段，學習「右分腳、雙峰貫耳、左分腳、轉身拍腳」；探討腿部力量與心理韌性的連結，認識穿戴式裝置與手機健康數據判讀。",
+        tags: {
+          taiji: "右分腳、雙峰貫耳、左分腳、轉身拍腳",
+          sel: "下盤力量與心理韌性連結",
+          ai: "穿戴裝置與健康數據判讀"
+        }
+      },
+      {
+        week: "第11週",
+        phase: "p3",
+        phaseLabel: "第三段",
+        title: "動靜相兼：進步栽捶與斜飛勢",
+        content: "學習「進步栽捶、斜飛勢、單鞭下勢、金雞獨立」；在低姿態下勢中練習耐心與自我接納，小組合作拍攝創意太極短影音。",
+        tags: {
+          taiji: "進步栽捶、斜飛勢、單鞭下勢、金雞獨立",
+          sel: "低姿態中的耐心與自我接納",
+          ai: "小組合作拍攝創意短影音"
+        }
+      },
+      {
+        week: "第12週",
+        phase: "p3",
+        phaseLabel: "第三段",
+        title: "沉穩內斂：退步穿掌與虛步壓掌",
+        content: "學習「退步穿掌、虛步壓掌、獨立托掌、馬步靠」；練習面對壓力時的「退一步」智慧，學習數位影像剪輯基礎與版權意識。",
+        tags: {
+          taiji: "退步穿掌、虛步壓掌、獨立托掌、馬步靠",
+          sel: "面對壓力的「退一步」智慧",
+          ai: "數位影像剪輯與版權意識"
+        }
+      },
+      {
+        week: "第13週",
+        phase: "p3",
+        phaseLabel: "第三段",
+        title: "貫通三段：第三段連貫與韻律",
+        content: "串聯第三段（第23至34式）；配合太極音樂練習呼吸與動作的節奏感，分享個人情緒調節案例與練拳心法。",
+        tags: {
+          taiji: "第三段串聯（第23至34式）",
+          sel: "個人情緒調節案例分享",
+          ai: "數位音樂節奏與韻律配合"
+        }
+      },
+      {
+        week: "第14週",
+        phase: "p4",
+        phaseLabel: "第四段",
+        title: "收放自如：轉身大捋與歇步擒打",
+        content: "進入第四段，學習「轉身大捋、歇步擒打、穿掌下勢、上步七星」；體驗團體合練的默契與歸屬感，運用AI生成背景音樂搭配套路練習。",
+        tags: {
+          taiji: "轉身大捋、歇步擒打、穿掌下勢、上步七星",
+          sel: "團體合練默契與歸屬感",
+          ai: "AI生成專屬太極背景音樂"
+        }
+      },
+      {
+        week: "第15週",
+        phase: "p4",
+        phaseLabel: "第四段",
+        title: "圓融無礙：退步跨虎與轉身擺蓮",
+        content: "學習「退步跨虎、轉身擺蓮、彎弓射虎、左攬雀尾」；挑戰高難度轉身平衡，跨世代組隊互相鼓勵並克服挫折感。",
+        tags: {
+          taiji: "退步跨虎、轉身擺蓮、彎弓射虎、左攬雀尾",
+          sel: "跨代互助鼓勵與克服挫折",
+          ai: "高難度轉身平衡影像檢視"
+        }
+      },
+      {
+        week: "第16週",
+        phase: "p4",
+        phaseLabel: "第四段",
+        title: "歸於平靜：十字手與收勢",
+        content: "學習「十字手、收勢」，完成全套42式太極拳教學；透過正念冥想整合身心能量，利用AI工具製作個人18週學習成長電子書。",
+        tags: {
+          taiji: "十字手、收勢（全套完成）",
+          sel: "正念冥想整合身心能量",
+          ai: "AI製作18週學習成長電子書"
+        }
+      },
+      {
+        week: "第17週",
+        phase: "p4",
+        phaseLabel: "總彩排",
+        title: "精益求精：全套演練與彩排",
+        content: "全套42式太極拳連貫演練與隊形編排；進行成果展總彩排，小組互相給予肯定與支持，緩解上台緊張情緒。",
+        tags: {
+          taiji: "全套42式連貫與隊形編排",
+          sel: "同儕肯定支持與緩解緊張",
+          ai: "彩排隊形與音樂數位整合"
+        }
+      },
+      {
+        week: "第18週",
+        phase: "p4",
+        phaseLabel: "成果展",
+        title: "成果展：青銀太極風華再現",
+        content: "期末動態成果展演，展現42式太極拳全套風采；靜態展示學員AI太極心境卡與學習歷程，頒發結業證書並分享學期感動。",
+        isShowcase: true,
+        tags: {
+          taiji: "42式太極拳全套動態展演",
+          sel: "結業頒證與學期感動分享",
+          ai: "AI太極心境卡與數位歷程展"
+        }
+      }
+    ];
+
+    // 狀態管理
+    let currentPhase = 'all';
+    let currentSearch = '';
+    let currentView = 'timeline'; // 'timeline' | 'table'
+    let isLargeText = false;
+
+    // 初始化渲染
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSyllabus();
+    });
+
+    // 渲染課程大綱（同時更新卡片與表格）
+    function renderSyllabus() {
+      const timelineContainer = document.getElementById('timelineContainer');
+      const tableBody = document.getElementById('tableBody');
+      const emptyState = document.getElementById('emptyState');
+
+      // 篩選資料
+      const filtered = syllabusData.filter(item => {
+        const matchPhase = currentPhase === 'all' || item.phase === currentPhase;
+        const keyword = currentSearch.trim().toLowerCase();
+        const matchSearch = !keyword || 
+          item.week.toLowerCase().includes(keyword) ||
+          item.title.toLowerCase().includes(keyword) ||
+          item.content.toLowerCase().includes(keyword) ||
+          (item.tags && (
+            item.tags.taiji.toLowerCase().includes(keyword) ||
+            item.tags.sel.toLowerCase().includes(keyword) ||
+            item.tags.ai.toLowerCase().includes(keyword)
+          ));
+        return matchPhase && matchSearch;
+      });
+
+      // 顯示或隱藏空狀態
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+        timelineContainer.innerHTML = '';
+        tableBody.innerHTML = '';
+        return;
+      } else {
+        emptyState.classList.add('hidden');
+      }
+
+      // 1. 渲染卡片時間軸視圖
+      timelineContainer.innerHTML = filtered.map(item => {
+        // 特殊樣式：第9週公民素養週
+        if (item.isCivic) {
+          return `
+            <div class="bg-goldLight/60 rounded-3xl p-6 border-2 border-dashed border-gold/40 flex flex-col justify-center print-break-inside-avoid">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-3.5 py-1 rounded-full bg-gold text-white font-serif font-bold text-sm shadow-sm">${item.week}</span>
+                <span class="text-xs font-bold text-gold tracking-wider">全校性活動</span>
+              </div>
+              <h4 class="font-serif font-bold text-xl text-ink mb-2">${item.title}</h4>
+              <p class="text-inkLight font-medium">${item.content}</p>
+            </div>
+          `;
+        }
+
+        // 特殊樣式：第18週成果展
+        const cardBorder = item.isShowcase 
+          ? 'border-2 border-gold bg-gradient-to-br from-white to-goldLight/40 shadow-md' 
+          : 'border border-ink/10 bg-white hover:border-bamboo/40 shadow-sm hover:shadow-md';
+        
+        const weekBadge = item.isShowcase
+          ? 'bg-gold text-white'
+          : 'bg-ink text-paper';
+
+        return `
+          <div class="${cardBorder} rounded-3xl p-6 transition-all flex flex-col justify-between print-break-inside-avoid">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-3.5 py-1 rounded-full ${weekBadge} font-serif font-bold text-sm">${item.week}</span>
+                  <span class="px-2.5 py-0.5 rounded-md bg-paper text-inkLight text-xs font-bold border border-ink/10">${item.phaseLabel}</span>
+                </div>
+                ${item.isShowcase ? '<i class="ph-fill ph-trophy text-2xl text-gold"></i>' : ''}
+              </div>
+              
+              <h4 class="font-serif font-bold text-xl text-ink mb-2.5">${item.title}</h4>
+              <p class="text-inkLight leading-relaxed text-sm sm:text-base mb-5">${item.content}</p>
+            </div>
+
+            ${item.tags ? `
+              <div class="pt-4 border-t border-ink/5 flex flex-col gap-1.5">
+                <div class="flex items-start gap-2 text-xs">
+                  <span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-bambooLight text-bamboo font-bold">
+                    <i class="ph-fill ph-yin-yang"></i>招式
+                  </span>
+                  <span class="text-ink/85 pt-0.5">${item.tags.taiji}</span>
+                </div>
+                <div class="flex items-start gap-2 text-xs">
+                  <span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-goldLight text-gold font-bold">
+                    <i class="ph-fill ph-heart"></i>情緒
+                  </span>
+                  <span class="text-ink/85 pt-0.5">${item.tags.sel}</span>
+                </div>
+                <div class="flex items-start gap-2 text-xs">
+                  <span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-techLight text-techBlue font-bold">
+                    <i class="ph-fill ph-robot"></i>數位
+                  </span>
+                  <span class="text-ink/85 pt-0.5">${item.tags.ai}</span>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+
+      // 2. 渲染完整表格視圖
+      tableBody.innerHTML = filtered.map(item => {
+        const rowBg = item.isCivic 
+          ? 'bg-goldLight/30' 
+          : (item.isShowcase ? 'bg-goldLight/20' : 'hover:bg-paper/80');
+
+        return `
+          <tr class="${rowBg} transition-colors print-break-inside-avoid">
+            <td class="py-4 px-5 align-top font-serif font-bold text-ink whitespace-nowrap">
+              <span class="inline-block px-2.5 py-1 rounded-lg ${item.isShowcase ? 'bg-gold text-white' : 'bg-paper border border-ink/10'} text-sm">
+                ${item.week}
+              </span>
+            </td>
+            <td class="py-4 px-5 align-top font-serif font-bold text-ink text-base">
+              ${item.title}
+            </td>
+            <td class="py-4 px-5 align-top text-inkLight leading-relaxed text-sm sm:text-base">
+              <div>${item.content}</div>
+              ${item.tags ? `
+                <div class="flex flex-wrap gap-1.5 mt-2.5">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-bambooLight text-bamboo text-xs font-medium">
+                    <i class="ph-fill ph-yin-yang"></i>${item.tags.taiji}
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-goldLight text-gold text-xs font-medium">
+                    <i class="ph-fill ph-heart"></i>${item.tags.sel}
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-techLight text-techBlue text-xs font-medium">
+                    <i class="ph-fill ph-robot"></i>${item.tags.ai}
+                  </span>
+                </div>
+              ` : ''}
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // 段落篩選切換
+    function filterPhase(phase) {
+      currentPhase = phase;
+      
+      // 更新按鈕樣式
+      document.querySelectorAll('.phase-btn').forEach(btn => {
+        if (btn.dataset.phase === phase) {
+          btn.className = 'phase-btn active px-3.5 py-2 rounded-xl text-sm font-bold bg-bamboo text-white shadow-sm transition-all cursor-pointer';
+        } else {
+          btn.className = 'phase-btn px-3.5 py-2 rounded-xl text-sm font-medium bg-white text-ink hover:bg-bambooLight border border-ink/10 transition-all cursor-pointer';
+        }
+      });
+
+      renderSyllabus();
+    }
+
+    // 關鍵字搜尋處理
+    function handleSearch() {
+      const input = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+      currentSearch = input.value;
+      
+      if (currentSearch.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderSyllabus();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      currentSearch = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderSyllabus();
+    }
+
+    function resetFilters() {
+      clearSearch();
+      filterPhase('all');
+    }
+
+    // 切換卡片視圖與表格視圖
+    function switchView(view) {
+      currentView = view;
+      const timelineContainer = document.getElementById('timelineContainer');
+      const tableContainer = document.getElementById('tableContainer');
+      const btnTimeline = document.getElementById('btnTimelineView');
+      const btnTable = document.getElementById('btnTableView');
+
+      if (view === 'timeline') {
+        timelineContainer.classList.remove('hidden');
+        tableContainer.classList.add('hidden');
+        btnTimeline.className = 'flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-ink shadow-sm cursor-pointer';
+        btnTable.className = 'flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all text-inkLight hover:text-ink cursor-pointer';
+      } else {
+        timelineContainer.classList.add('hidden');
+        tableContainer.classList.remove('hidden');
+        btnTable.className = 'flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-ink shadow-sm cursor-pointer';
+        btnTimeline.className = 'flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all text-inkLight hover:text-ink cursor-pointer';
+      }
+    }
+
+    // 無障礙大字體模式切換
+    function toggleFontSize() {
+      isLargeText = !isLargeText;
+      const htmlEl = document.documentElement;
+      const labelEl = document.getElementById('fontSizeLabel');
+
+      if (isLargeText) {
+        htmlEl.classList.add('large-text');
+        labelEl.textContent = '標準字體';
+        showToast('已切換為「大字體閱讀模式」，更適合長輩瀏覽');
+      } else {
+        htmlEl.classList.remove('large-text');
+        labelEl.textContent = '大字體模式';
+        showToast('已恢復為「標準字體模式」');
+      }
+    }
+
+    // 一鍵複製完整課程文字稿 (使用 execCommand 相容 iframe 環境)
+    function copyCourseText() {
+      const lines = [
+        "【彰化社區大學 18週特色課程】",
+        "課程名稱：青銀共舞：AI賦能42式太極",
+        "",
+        "【課程理念】",
+        "結合42式太極剛柔並濟之美、社會情緒覺察與AI數位工具，助跨世代學員在動靜之間安頓身心，實現青銀共學與智慧樂活。",
+        "",
+        "【課程目標】",
+        "因應高齡化與數位轉型趨勢，本課程從太極陰陽平衡理論出發，循序教授42式太極拳技能；透過團體互動培養專注、情緒覺察與跨代同理心，並運用AI影像與數位工具輔助練習，進而將身心平衡與科技素養融入日常，促進社區共融與終身學習。",
+        "",
+        "【條件限制】",
+        "本課程為進階推廣課程，適合20至80歲身心健康之民眾。學員須具備基礎太極拳或八段錦等基本功底，能獨立完成單腳站立與基本步法移動（如弓步、虛步），並自備智慧型手機以配合課堂數位學習活動。",
+        "",
+        "【授課方式】",
+        "講師示範與實際操作、個別指導與反覆練習、影片欣賞及圖像教學、團體互動及小組活動、案例討論與心得分享、學員上台表演與展現。",
+        "",
+        "【發展計畫】",
+        "未來將發展雙人推手與太極器械應用，並培訓學員成為社區太極種子講師，結合數位影音紀錄推廣地方健康促進。",
+        "",
+        "【教學設計】",
+        "第6週「雲手轉身與情緒流動」：暖身調息後，示範雲手與轉身步法；分組以手機錄影比對動作，並分享練習時的呼吸與情緒覺察。",
+        "",
+        "【18週課程大綱】"
+      ];
+
+      syllabusData.forEach(item => {
+        lines.push(`${item.week}｜${item.title}：${item.content}`);
+      });
+
+      const fullText = lines.join("\n");
+      const textArea = document.createElement("textarea");
+      textArea.value = fullText;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+
+      try {
+        document.execCommand('copy');
+        showToast('已複製完整課程文字稿至剪貼簿！');
+      } catch (err) {
+        showToast('複製失敗，請手動選取文字複製');
+      }
+      document.body.removeChild(textArea);
